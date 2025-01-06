@@ -1,22 +1,28 @@
-// Script pentru interacțiuni de bază pe site
+mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [26.1, 44.4],
+    zoom: 10
+});
 
-// Așteaptă încărcarea completă a paginii
-document.addEventListener('DOMContentLoaded', () => {
-    // Selectează toate linkurile din navigație
-    const navLinks = document.querySelectorAll('nav ul li a');
+// Prestatori de servicii
+const prestatori = [
+    { id: 1, lng: 26.1025, lat: 44.4268, tip: 'vulcanizare', nume: 'Vulcanizare Non-Stop' },
+    { id: 2, lng: 26.085, lat: 44.435, tip: 'tractare', nume: 'Tractare Non-Stop' }
+];
 
-    // Adaugă un eveniment de clic pentru fiecare link
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = link.getAttribute('href').substring(1); // Obține ID-ul secțiunii
-            const targetElement = document.getElementById(targetId);
+// Afișare marcaje
+prestatori.forEach(prestator => {
+    const marker = new mapboxgl.Marker()
+        .setLngLat([prestator.lng, prestator.lat])
+        .setPopup(new mapboxgl.Popup().setText(prestator.nume))
+        .addTo(map);
+});
 
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' }); // Derulare lină către secțiune
-            }
-        });
-    });
-
-    console.log('Navigația a fost activată!');
+// Căutare în prestatori
+document.getElementById('search-button').addEventListener('click', () => {
+    const query = document.getElementById('search-bar').value.toLowerCase();
+    const rezultate = prestatori.filter(prestator => prestator.nume.toLowerCase().includes(query));
+    console.log('Rezultate căutare:', rezultate);
 });
