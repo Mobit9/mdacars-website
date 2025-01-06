@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MDACars - Platformă de Servicii Auto</title>
+    <title>MDACars - Asistență Digitală Mobilă</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
@@ -16,53 +16,42 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#home">Acasă</a></li>
                 <li><a href="#harta">Harta</a></li>
-                <li><a href="#servicii">Servicii</a></li>
+                <li><a href="#categorii">Servicii</a></li>
                 <li><a href="#feedback">Feedback</a></li>
                 <li><a href="#profil">Profilul Meu</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- BARA DE CĂUTARE -->
-    <section id="search-bar-section">
-        <div class="search-bar-container">
-            <input type="text" id="search-bar" placeholder="Caută servicii sau prestatori..." />
-            <button id="search-button">Caută</button>
-        </div>
-    </section>
-
     <!-- SECȚIUNEA HOME -->
     <section id="home">
-        <div class="banner">
-            <h2>Bine ai venit la MDACars</h2>
-            <p>Conectăm șoferii cu prestatorii de servicii auto, rapid și eficient.</p>
+        <div class="welcome-message">
+            <h2>Bine ați venit la MDACars</h2>
+            <p>Asistență digitală mobilă pentru nevoile tale auto.</p>
             <button class="cta">Solicită Ajutor</button>
         </div>
-    </section>
-
-    <!-- SECȚIUNEA HARTĂ -->
-    <section id="harta">
-        <h2>Harta Prestatorilor</h2>
         <div id="map"></div>
     </section>
 
-    <!-- SECȚIUNEA SERVICII -->
-    <section id="servicii">
+    <!-- SECȚIUNEA CATEGORII -->
+    <section id="categorii">
         <h2>Servicii Oferite</h2>
-        <div class="grid-servicii">
-            <div class="serviciu">
+        <div class="grid-categorii">
+            <div class="categorie">
+                <img src="tractare.png" alt="Tractare Auto">
                 <h3>Tractare Auto</h3>
-                <p>Disponibil 24/7 în toată țara.</p>
+                <p>Ajutor rapid în caz de urgență.</p>
             </div>
-            <div class="serviciu">
+            <div class="categorie">
+                <img src="vulcanizare.png" alt="Vulcanizare Mobilă">
                 <h3>Vulcanizare Mobilă</h3>
-                <p>Rezolvăm problemele cu anvelopele rapid.</p>
+                <p>Reparații rapide oriunde te afli.</p>
             </div>
-            <div class="serviciu">
+            <div class="categorie">
+                <img src="diagnostic.png" alt="Diagnoză">
                 <h3>Diagnoză la Domiciliu</h3>
-                <p>Verificări complete direct la locația ta.</p>
+                <p>Verificări tehnice rapide.</p>
             </div>
         </div>
     </section>
