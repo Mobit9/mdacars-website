@@ -1,5 +1,5 @@
 // Configurare Mapbox
-mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'; // Înlocuiește cu token-ul tău
+mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'; // Înlocuiește cu token-ul tău Mapbox
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
@@ -7,7 +7,7 @@ const map = new mapboxgl.Map({
     zoom: 10
 });
 
-// Prestatori de servicii - date simulare
+// Prestatori de servicii - date simulate
 const prestatori = [
     { id: 1, lng: 26.1025, lat: 44.4268, tip: 'vulcanizare', nume: 'Vulcanizare Non-Stop' },
     { id: 2, lng: 26.085, lat: 44.435, tip: 'tractare', nume: 'Tractare Rapidă București' },
@@ -17,16 +17,16 @@ const prestatori = [
 // Afișare marcaje pe hartă
 function afiseazaMarcaje(prestatoriFiltrati) {
     map.eachLayer(layer => {
-        if (layer.type === 'symbol' && layer.id !== 'composite') {
+        if (layer.id.startsWith('prestator-')) {
             map.removeLayer(layer.id);
             map.removeSource(layer.id);
         }
     });
 
     prestatoriFiltrati.forEach(prestator => {
-        new mapboxgl.Marker()
+        const marker = new mapboxgl.Marker()
             .setLngLat([prestator.lng, prestator.lat])
-            .setPopup(new mapboxgl.Popup().setText(prestator.nume))
+            .setPopup(new mapboxgl.Popup().setHTML(`<h3>${prestator.nume}</h3><p>Tip: ${prestator.tip}</p>`))
             .addTo(map);
     });
 }
@@ -34,7 +34,7 @@ function afiseazaMarcaje(prestatoriFiltrati) {
 // Afișare inițială a prestatorilor
 afiseazaMarcaje(prestatori);
 
-// Bara de căutare
+// Bara de căutare - Filtrare prestatori
 document.getElementById('search-button').addEventListener('click', () => {
     const query = document.getElementById('search-bar').value.toLowerCase();
     const prestatoriFiltrati = prestatori.filter(prestator =>
@@ -43,7 +43,7 @@ document.getElementById('search-button').addEventListener('click', () => {
     afiseazaMarcaje(prestatoriFiltrati);
 });
 
-// Navigare între secțiuni
+// Scroll lin între secțiuni
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
@@ -52,5 +52,13 @@ document.querySelectorAll('nav ul li a').forEach(link => {
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth' });
         }
+    });
+});
+
+// Animații la click pe butoane CTA
+document.querySelectorAll('.cta').forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.add('clicked');
+        setTimeout(() => button.classList.remove('clicked'), 300);
     });
 });
