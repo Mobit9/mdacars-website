@@ -7,7 +7,7 @@ const map = new mapboxgl.Map({
     zoom: 10
 });
 
-// Prestatori de servicii - date simulate
+// Prestatori de servicii - Date simulate
 const prestatori = [
     { id: 1, lng: 26.1025, lat: 44.4268, tip: 'vulcanizare', nume: 'Vulcanizare Non-Stop' },
     { id: 2, lng: 26.085, lat: 44.435, tip: 'tractare', nume: 'Tractare Rapidă București' },
@@ -24,9 +24,12 @@ function afiseazaMarcaje(prestatoriFiltrati) {
     });
 
     prestatoriFiltrati.forEach(prestator => {
-        const marker = new mapboxgl.Marker()
+        const marker = new mapboxgl.Marker({ color: '#ff5733' })
             .setLngLat([prestator.lng, prestator.lat])
-            .setPopup(new mapboxgl.Popup().setHTML(`<h3>${prestator.nume}</h3><p>Tip: ${prestator.tip}</p>`))
+            .setPopup(new mapboxgl.Popup().setHTML(`
+                <h3>${prestator.nume}</h3>
+                <p>Tip: ${prestator.tip}</p>
+            `))
             .addTo(map);
     });
 }
@@ -41,9 +44,17 @@ document.getElementById('search-button').addEventListener('click', () => {
         prestator.nume.toLowerCase().includes(query) || prestator.tip.toLowerCase().includes(query)
     );
     afiseazaMarcaje(prestatoriFiltrati);
+
+    // Animație pentru căutare
+    const searchSection = document.getElementById('search-bar-section');
+    searchSection.style.transition = 'background-color 0.5s ease-in-out';
+    searchSection.style.backgroundColor = '#28a745';
+    setTimeout(() => {
+        searchSection.style.backgroundColor = 'transparent';
+    }, 1000);
 });
 
-// Scroll lin între secțiuni
+// Navigare lină între secțiuni
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
@@ -55,10 +66,11 @@ document.querySelectorAll('nav ul li a').forEach(link => {
     });
 });
 
-// Animații la click pe butoane CTA
+// Animații pentru butoane CTA
 document.querySelectorAll('.cta').forEach(button => {
     button.addEventListener('click', () => {
-        button.classList.add('clicked');
-        setTimeout(() => button.classList.remove('clicked'), 300);
+        button.style.transition = 'transform 0.2s ease-in-out';
+        button.style.transform = 'scale(1.1)';
+        setTimeout(() => button.style.transform = 'scale(1)', 200);
     });
 });
