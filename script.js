@@ -15,62 +15,9 @@ const prestatori = [
 ];
 
 // Afișare marcaje pe hartă
-function afiseazaMarcaje(prestatoriFiltrati) {
-    map.eachLayer(layer => {
-        if (layer.id.startsWith('prestator-')) {
-            map.removeLayer(layer.id);
-            map.removeSource(layer.id);
-        }
-    });
-
-    prestatoriFiltrati.forEach(prestator => {
-        const marker = new mapboxgl.Marker({ color: '#ff5733' })
-            .setLngLat([prestator.lng, prestator.lat])
-            .setPopup(new mapboxgl.Popup().setHTML(`
-                <h3>${prestator.nume}</h3>
-                <p>Tip: ${prestator.tip}</p>
-            `))
-            .addTo(map);
-    });
-}
-
-// Afișare inițială a prestatorilor
-afiseazaMarcaje(prestatori);
-
-// Bara de căutare - Filtrare prestatori
-document.getElementById('search-button').addEventListener('click', () => {
-    const query = document.getElementById('search-bar').value.toLowerCase();
-    const prestatoriFiltrati = prestatori.filter(prestator =>
-        prestator.nume.toLowerCase().includes(query) || prestator.tip.toLowerCase().includes(query)
-    );
-    afiseazaMarcaje(prestatoriFiltrati);
-
-    // Animație pentru căutare
-    const searchSection = document.getElementById('search-bar-section');
-    searchSection.style.transition = 'background-color 0.5s ease-in-out';
-    searchSection.style.backgroundColor = '#28a745';
-    setTimeout(() => {
-        searchSection.style.backgroundColor = 'transparent';
-    }, 1000);
-});
-
-// Navigare lină între secțiuni
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-
-// Animații pentru butoane CTA
-document.querySelectorAll('.cta').forEach(button => {
-    button.addEventListener('click', () => {
-        button.style.transition = 'transform 0.2s ease-in-out';
-        button.style.transform = 'scale(1.1)';
-        setTimeout(() => button.style.transform = 'scale(1)', 200);
-    });
+prestatori.forEach(prestator => {
+    const marker = new mapboxgl.Marker({ color: '#007bff' })
+        .setLngLat([prestator.lng, prestator.lat])
+        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${prestator.nume}</h3><p>Tip: ${prestator.tip}</p>`))
+        .addTo(map);
 });
