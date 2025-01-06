@@ -16,27 +16,22 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#autentificare">Autentificare</a></li>
+                <li><a href="#home">Acasă</a></li>
                 <li><a href="#harta">Harta</a></li>
                 <li><a href="#servicii">Servicii</a></li>
                 <li><a href="#feedback">Feedback</a></li>
+                <li><a href="#profil">Profilul Meu</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- SECȚIUNEA AUTENTIFICARE -->
-    <section id="autentificare">
-        <h2>Autentificare</h2>
-        <form>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Introduceți email-ul" required>
-            
-            <label for="parola">Parolă:</label>
-            <input type="password" id="parola" name="parola" placeholder="Introduceți parola" required>
-            
-            <button type="submit">Autentificare</button>
-        </form>
-        <p>Nu ai un cont? <a href="#inregistrare">Creează un cont nou</a></p>
+    <!-- SECȚIUNEA HOME -->
+    <section id="home">
+        <div class="banner">
+            <h2>Bine ai venit la MDACars</h2>
+            <p>Conectăm șoferii cu prestatorii de servicii auto, rapid și eficient.</p>
+            <button class="cta">Solicită Ajutor</button>
+        </div>
     </section>
 
     <!-- SECȚIUNEA HARTĂ -->
@@ -72,4 +67,27 @@
             <input type="text" id="nume" name="nume" placeholder="Introduceți numele" required>
             
             <label for="email-feedback">Email:</label>
-            <input
+            <input type="email" id="email-feedback" name="email-feedback" placeholder="Introduceți email-ul" required>
+            
+            <label for="mesaj">Mesaj:</label>
+            <textarea id="mesaj" name="mesaj" rows="5" placeholder="Scrieți mesajul aici..." required></textarea>
+            
+            <button type="submit">Trimite Feedback</button>
+        </form>
+    </section>
+
+    <!-- SECȚIUNEA PROFIL -->
+    <section id="profil">
+        <h2>Profilul Meu</h2>
+        <p>Bun venit, [Nume Utilizator].</p>
+        <button class="cta">Gestionează Contul</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 MDACars. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
