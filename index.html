@@ -3,84 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MDACars - Asistență Digitală Mobilă</title>
+    <meta name="description" content="MDACars - Servicii auto rapide si eficiente">
+    <title>MDACars</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER -->
     <header>
-        <div class="logo">
-            <h1>MDACars</h1>
-        </div>
         <nav>
-            <ul>
-                <li><a href="#harta">Harta</a></li>
-                <li><a href="#categorii">Servicii</a></li>
-                <li><a href="#feedback">Feedback</a></li>
-                <li><a href="#profil">Profilul Meu</a></li>
+            <ul class="menu">
+                <li><a href="#home">Acasă</a></li>
+                <li><a href="#services">Servicii</a></li>
+                <li><a href="#mobility">Digital Mobility Assistance</a></li>
+                <li><a href="#about">Despre Noi</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- SECȚIUNEA HOME -->
+    
     <section id="home">
-        <div class="welcome-message">
-            <h2>Bine ați venit la MDACars</h2>
-            <p>Asistență digitală mobilă pentru nevoile tale auto.</p>
-            <button class="cta">Solicită Ajutor</button>
-        </div>
-        <div id="map"></div>
+        <h1>Bine ați venit la MDACars</h1>
+        <p>Servicii auto rapide și accesibile, la un click distanță.</p>
     </section>
 
-    <!-- SECȚIUNEA CATEGORII -->
-    <section id="categorii">
-        <h2>Servicii Oferite</h2>
-        <div class="grid-categorii">
-            <div class="categorie">
-                <img src="tractare.png" alt="Tractare Auto">
-                <h3>Tractare Auto</h3>
-                <p>Ajutor rapid în caz de urgență.</p>
-            </div>
-            <div class="categorie">
-                <img src="vulcanizare.png" alt="Vulcanizare Mobilă">
-                <h3>Vulcanizare Mobilă</h3>
-                <p>Reparații rapide oriunde te afli.</p>
-            </div>
-            <div class="categorie">
-                <img src="diagnostic.png" alt="Diagnoză">
-                <h3>Diagnoză la Domiciliu</h3>
-                <p>Verificări tehnice rapide.</p>
-            </div>
+    <section id="services">
+        <h2>Serviciile Noastre</h2>
+        <div class="service-card">
+            <h3>Tractări Auto</h3>
+            <p>Asistență rapidă în caz de defecțiuni sau accidente.</p>
+        </div>
+        <div class="service-card">
+            <h3>Reparații Mobile</h3>
+            <p>Te ajutăm oriunde te afli cu soluții eficiente.</p>
+        </div>
+        <div class="service-card">
+            <h3>Întreținere</h3>
+            <p>Programează revizii și reparații direct din aplicație.</p>
         </div>
     </section>
 
-    <!-- SECȚIUNEA FEEDBACK -->
-    <section id="feedback">
-        <h2>Feedback</h2>
-        <form>
-            <label for="nume">Nume:</label>
-            <input type="text" id="nume" name="nume" placeholder="Introduceți numele" required>
-            
-            <label for="email-feedback">Email:</label>
-            <input type="email" id="email-feedback" name="email-feedback" placeholder="Introduceți email-ul" required>
-            
-            <label for="mesaj">Mesaj:</label>
-            <textarea id="mesaj" name="mesaj" rows="5" placeholder="Scrieți mesajul aici..." required></textarea>
-            
-            <button type="submit">Trimite Feedback</button>
+    <section id="mobility">
+        <h2>Digital Mobility Assistance</h2>
+        <p>MDACars oferă asistență digitală completă pentru mobilitate, integrând servicii moderne pentru vehiculul tău. Accesează soluții rapide prin aplicația noastră interactivă.</p>
+        <ul>
+            <li>Localizare în timp real a prestatorilor auto disponibili.</li>
+            <li>Evaluări și recenzii pentru alegerea celor mai buni furnizori.</li>
+            <li>Asistență mobilă pentru situații de urgență.</li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>Despre Noi</h2>
+        <p>La MDACars, ne angajăm să oferim soluții rapide și de încredere pentru toate nevoile tale auto.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contact-form">
+            <label for="name">Nume:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mesaj:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Trimite</button>
         </form>
     </section>
 
-    <!-- SECȚIUNEA PROFIL -->
-    <section id="profil">
-        <h2>Profilul Meu</h2>
-        <p>Bun venit, [Nume Utilizator].</p>
-        <button class="cta">Gestionează Contul</button>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 MDACars. Toate drepturile rezervate.</p>
     </footer>
