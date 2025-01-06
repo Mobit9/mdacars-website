@@ -9,68 +9,67 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
 </head>
 <body>
+    <!-- HEADER -->
     <header>
-        <h1>MDACars</h1>
+        <div class="logo">
+            <h1>MDACars</h1>
+        </div>
         <nav>
             <ul>
-                <li><a href="#cautare">Caută Servicii</a></li>
-                <li><a href="#harta">Harta</a></li>
-                <li><a href="#feedback">Feedback</a></li>
                 <li><a href="#autentificare">Autentificare</a></li>
+                <li><a href="#harta">Harta</a></li>
+                <li><a href="#servicii">Servicii</a></li>
+                <li><a href="#feedback">Feedback</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <!-- Bara de Căutare -->
-        <section id="cautare">
-            <h2>Caută Prestatori de Servicii</h2>
-            <input type="text" id="search-bar" placeholder="Caută după nume, tip sau locație...">
-            <button id="search-button">Caută</button>
-        </section>
+    <!-- SECȚIUNEA AUTENTIFICARE -->
+    <section id="autentificare">
+        <h2>Autentificare</h2>
+        <form>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Introduceți email-ul" required>
+            
+            <label for="parola">Parolă:</label>
+            <input type="password" id="parola" name="parola" placeholder="Introduceți parola" required>
+            
+            <button type="submit">Autentificare</button>
+        </form>
+        <p>Nu ai un cont? <a href="#inregistrare">Creează un cont nou</a></p>
+    </section>
 
-        <!-- Harta Interactivă -->
-        <section id="harta">
-            <h2>Harta Prestatorilor</h2>
-            <div id="map"></div>
-        </section>
+    <!-- SECȚIUNEA HARTĂ -->
+    <section id="harta">
+        <h2>Harta Prestatorilor</h2>
+        <div id="map"></div>
+    </section>
 
-        <!-- Formular Feedback -->
-        <section id="feedback">
-            <h2>Trimite Feedback</h2>
-            <form>
-                <label for="nume">Nume:</label>
-                <input type="text" id="nume" name="nume" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="mesaj">Mesaj:</label>
-                <textarea id="mesaj" name="mesaj" rows="4" required></textarea>
-                
-                <button type="submit">Trimite Feedback</button>
-            </form>
-        </section>
+    <!-- SECȚIUNEA SERVICII -->
+    <section id="servicii">
+        <h2>Servicii Oferite</h2>
+        <div class="grid-servicii">
+            <div class="serviciu">
+                <h3>Tractare Auto</h3>
+                <p>Disponibil 24/7 în toată țara.</p>
+            </div>
+            <div class="serviciu">
+                <h3>Vulcanizare Mobilă</h3>
+                <p>Rezolvăm problemele cu anvelopele rapid.</p>
+            </div>
+            <div class="serviciu">
+                <h3>Diagnoză la Domiciliu</h3>
+                <p>Verificări complete direct la locația ta.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Autentificare -->
-        <section id="autentificare">
-            <h2>Autentificare</h2>
-            <form>
-                <label for="email">Email:</label>
-                <input type="email" id="email-login" name="email" required>
-                
-                <label for="parola">Parolă:</label>
-                <input type="password" id="parola" name="parola" required>
-                
-                <button type="submit">Autentifică-te</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 MDACars. Toate drepturile rezervate.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- SECȚIUNEA FEEDBACK -->
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <form>
+            <label for="nume">Nume:</label>
+            <input type="text" id="nume" name="nume" placeholder="Introduceți numele" required>
+            
+            <label for="email-feedback">Email:</label>
+            <input
